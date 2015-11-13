@@ -7,8 +7,8 @@ import java.sql.SQLException;
 
 public class Conectar {
      static String db ="ejemplo";
-    static String login="asd";
-    static String password="asd";
+    static String login="ppablo";
+    static String password="Nicol.123";
     static String url="jdbc:derby://localhost:1527/"+db;
 
     
