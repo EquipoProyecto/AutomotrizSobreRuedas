@@ -256,7 +256,7 @@ public class IngresarCompra extends javax.swing.JInternalFrame {
 
     private void Accesorio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Accesorio1ActionPerformed
         Conectar cc = new Conectar();
-     Connection cn = cc.getConnection();
+     Connection cn = cc.conexion();
      try
      {
          Statement st = cn.createStatement();

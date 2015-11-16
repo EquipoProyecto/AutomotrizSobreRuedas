@@ -4,40 +4,23 @@ package Conectar;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
+import java.sql.*;
+import javax.swing.*;
 
 public class Conectar {
-     static String db ="ejemplo";
-    static String login="ppablo";
-    static String password="Nicol.123";
-    static String url="jdbc:derby://localhost:1527/"+db;
-
-    
-    Connection conn = null;
-    
-    public Conectar() 
-    {
-        try {
-         Class.forName("org.apache.derby.jdbc.ClientDriver");
-         conn = DriverManager.getConnection(url,login,password);
-         if(conn != null)
-         {
-         System.out.println("Conexion a base de datos " + db + ". Lista!!!!");
-         }
-        
-        }catch(SQLException e){
-          System.out.println(e);
-        }catch(ClassNotFoundException e)
-                {
-                System.out.println(e);
-                }
-    
-    }
-    public Connection getConnection(){
-    return conn;
-    }
-    
-    public void desconectar(){
-    conn=null;
-    }
+  Connection connect = null;
+  public Connection conexion()
+  {
+     try{
+        Class.forName("com.mysql.jdbc.Driver");
+        connect = DriverManager.getConnection("jdbc:mysql://consultashevaro.ddns.net/automotora","prueba","prueba1");
+     }catch (Exception e)
+     {
+        JOptionPane.showMessageDialog(null,"Error"+e);
+     }
+      return connect;
+  }
 
 }

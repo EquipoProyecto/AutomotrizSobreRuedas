@@ -40,7 +40,7 @@ public class ListadoAutos extends javax.swing.JInternalFrame {
     
     
       Conectar cc = new Conectar();
-      Connection cn = cc.getConnection();
+      Connection cn = cc.conexion();
       
     try{
         Statement st = cn.createStatement();
