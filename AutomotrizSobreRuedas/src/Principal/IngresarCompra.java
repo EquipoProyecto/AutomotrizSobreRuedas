@@ -5,7 +5,7 @@
  */
 package Principal;
 
-import Conectar.Conectar;
+import Conectar.conectar1;
 import java.awt.Component;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -255,7 +255,7 @@ public class IngresarCompra extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void Accesorio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Accesorio1ActionPerformed
-        Conectar cc = new Conectar();
+        conectar1 cc = new conectar1();
      Connection cn = cc.conexion();
      try
      {

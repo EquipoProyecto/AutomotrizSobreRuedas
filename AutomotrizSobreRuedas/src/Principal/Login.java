@@ -5,14 +5,13 @@
  */
 package Principal;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import Conectar.Conectar;
+import Conectar.conectar1;
 import java.sql.Connection;
 
 /**
@@ -21,7 +20,7 @@ import java.sql.Connection;
  */
 public class Login extends javax.swing.JFrame {
 
-     Conectar cc = new Conectar();
+     conectar1 cc = new conectar1();
      Connection cn = cc.conexion();
  void acceder(String usuario, String password)
     {
@@ -58,7 +57,7 @@ public class Login extends javax.swing.JFrame {
                    sup.setVisible(true);
                    sup.pack();
                }
-               if((!cap.equals("Cliente"))&&(!cap.equals("Vendedor"))&&(!cap.equals("Supervisor")))
+                else if((!cap.equals("Cliente"))&&(!cap.equals("Vendedor"))&&(!cap.equals("Supervisor")))
                {
                   JOptionPane.showMessageDialog(this,"No existen sus datos");
                }
@@ -144,11 +143,11 @@ public class Login extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(96, 96, 96)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(68, 68, 68)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(69, 69, 69))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
