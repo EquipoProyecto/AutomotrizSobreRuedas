@@ -11,6 +11,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,7 +27,56 @@ public class IngresarCompra extends javax.swing.JInternalFrame {
     public IngresarCompra() {
         initComponents();
     }
+     public void RellenarAccesorio1()
+     {
+    
+    String sql = "Select * from accesorios";
+ 
+    
+    
+      conectar1 cc = new conectar1();
+      Connection cn = cc.conexion();
+      
+    try{
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(sql);
+        while(rs.next())
+        {
+          Accesorio1.addItem(rs.getString(2));
 
+        }
+    
+    }catch(SQLException ex)
+    {
+        Logger.getLogger(IngresarCompra.class.getName()).log(Level.SEVERE,null,ex);
+    
+    }
+     }
+     public void RellenarAccesorio2()
+     {
+    
+    String sql = "Select * from accesorios";
+ 
+    
+    
+      conectar1 cc = new conectar1();
+      Connection cn = cc.conexion();
+      
+    try{
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(sql);
+        while(rs.next())
+        {
+          Accesorio1.addItem(rs.getString(2));
+
+        }
+    
+    }catch(SQLException ex)
+    {
+        Logger.getLogger(IngresarCompra.class.getName()).log(Level.SEVERE,null,ex);
+    
+    }
+     }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -72,7 +123,6 @@ public class IngresarCompra extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Accesorio 1:");
 
-        Accesorio1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "Llantas de aleacion", "Barras porta equipaje", "Luces de neon", "Neblineros", "Funda asientos", "Escape resonador", "Sin accesorios" }));
         Accesorio1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Accesorio1ActionPerformed(evt);
@@ -81,7 +131,6 @@ public class IngresarCompra extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Accesorio 2:");
 
-        Accesorio2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "Llantas de aleacion", "Barras porta equipaje", "Luces de neon", "Neblineros", "Funda asientos", "Escape resonador", "Sin accesorios" }));
         Accesorio2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Accesorio2ActionPerformed(evt);
@@ -130,16 +179,16 @@ public class IngresarCompra extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(Accesorio1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel5)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(Accesorio2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGap(29, 29, 29)
+                                        .addComponent(Accesorio2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(Accesorio1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel6)
                                     .addComponent(jLabel7)))
@@ -179,16 +228,12 @@ public class IngresarCompra extends javax.swing.JInternalFrame {
                     .addComponent(jLabel2)
                     .addComponent(cod_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(cod_Auto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton5)))
-                .addGap(21, 21, 21)
+                .addGap(23, 23, 23)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(cod_Auto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5))
+                .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(Accesorio1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -255,45 +300,7 @@ public class IngresarCompra extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void Accesorio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Accesorio1ActionPerformed
-        conectar1 cc = new conectar1();
-     Connection cn = cc.conexion();
-     try
-     {
-         Statement st = cn.createStatement();
-          ResultSet rs = st.executeQuery("select * from accesorios");
-        while(rs.next())
-        {
-        if(Accesorio1.getSelectedItem().equals("Seleccione"))
-         { 
-             estado1.setSelectedItem("Seleccione");
-      }else if(Accesorio1.getSelectedItem().equals(rs.getString("CODIGO_AUTO")))
-      {
-          estado1.setSelectedItem("Pendiente");
-      }else if(Accesorio1.getSelectedItem().equals("Barras porta equipaje"))
-      {
-          estado1.setSelectedItem("Pendiente");
-      }else if(Accesorio1.getSelectedItem().equals("Luces de neon"))
-      {
-          estado1.setSelectedItem("Pendiente");
-
-      }else if(Accesorio1.getSelectedItem().equals("Neblineros"))
-      {
-         estado1.setSelectedItem("Pendiente");
-      }else if(Accesorio1.getSelectedItem().equals("Funda asientos"))
-      {
-          estado1.setSelectedItem("Pendiente");
-      }else if(Accesorio1.getSelectedItem().equals("Escape resonador"))
-      {
-          estado1.setSelectedItem("Pendiente");
-      }else if(Accesorio1.getSelectedItem().equals("Sin accesorios"))
-          estado1.setSelectedItem("Sin estado");
-         Accesorio2.setSelectedItem("Sin accesorios");
-          estado2.setSelectedItem("Sin estado");
-        }
-     }catch(SQLException ex)
-     {
-          
-     }
+        RellenarAccesorio1();
     }//GEN-LAST:event_Accesorio1ActionPerformed
 
     private void estado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estado1ActionPerformed
@@ -305,65 +312,7 @@ public class IngresarCompra extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_estado2ActionPerformed
 
     private void Accesorio2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Accesorio2ActionPerformed
-
-        if(Accesorio1.getSelectedItem().equals("Seleccione"))
-         { 
-             estado1.setSelectedItem("Seleccione");
-      }else if(Accesorio1.getSelectedItem().equals("Llantas de aleacion")&&(Accesorio2.getSelectedItem().equals("Llantas de aleacion")))
-      {
-         JOptionPane.showMessageDialog(null,"No puede Elegir el mismo accesorio","ERROR",JOptionPane.ERROR_MESSAGE);
-         Accesorio2.setSelectedIndex(0);
-         estado2.setSelectedIndex(0);
-      }else
-      {
-           estado2.setSelectedItem("Pendiente");
-      }
-          if(Accesorio1.getSelectedItem().equals("Barras porta equipaje")&&(Accesorio2.getSelectedItem().equals("Barras porta equipaje")))
-      {
-         JOptionPane.showMessageDialog(null,"No puede Elegir el mismo accesorio","ERROR",JOptionPane.ERROR_MESSAGE);
-         Accesorio2.setSelectedIndex(0);
-         estado2.setSelectedIndex(0);
-      }else
-      {
-           estado2.setSelectedItem("Pendiente");
-      }
-          if(Accesorio1.getSelectedItem().equals("Luces de neon")&&(Accesorio2.getSelectedItem().equals("Luces de neon")))
-      {
-         JOptionPane.showMessageDialog(null,"No puede Elegir el mismo accesorio","ERROR",JOptionPane.ERROR_MESSAGE);
-        Accesorio2.setSelectedIndex(0);
-         estado2.setSelectedIndex(0);
-      }else
-      {
-           estado2.setSelectedItem("Pendiente");
-      }
-          if(Accesorio1.getSelectedItem().equals("Neblineros")&&(Accesorio2.getSelectedItem().equals("Neblineros")))
-      {
-         JOptionPane.showMessageDialog(null,"No puede Elegir el mismo accesorio","ERROR",JOptionPane.ERROR_MESSAGE);
-         Accesorio2.setSelectedIndex(0);
-         estado2.setSelectedIndex(0);
-      }else
-      {
-           estado2.setSelectedItem("Pendiente");
-      }
-          if(Accesorio1.getSelectedItem().equals("Funda asientos")&&(Accesorio2.getSelectedItem().equals("Funda asientos")))
-      {
-         JOptionPane.showMessageDialog(null,"No puede Elegir el mismo accesorio","ERROR",JOptionPane.ERROR_MESSAGE);
-        Accesorio2.setSelectedIndex(0);
-         estado2.setSelectedIndex(0);
-      }else
-      {
-           estado2.setSelectedItem("Pendiente");
-      }
-          if(Accesorio1.getSelectedItem().equals("Escape resonador")&&(Accesorio2.getSelectedItem().equals("Escape resonador")))
-      {
-         JOptionPane.showMessageDialog(null,"No puede Elegir el mismo accesorio","ERROR",JOptionPane.ERROR_MESSAGE);
-       Accesorio2.setSelectedIndex(0);
-         estado2.setSelectedIndex(0);
-
-      }else
-      {
-           estado2.setSelectedItem("Pendiente");
-      }
+         RellenarAccesorio2();
     }//GEN-LAST:event_Accesorio2ActionPerformed
 
 
