@@ -13,7 +13,7 @@ public class conectar1 {
   {
      try{
         Class.forName("com.mysql.jdbc.Driver");
-        connect = DriverManager.getConnection("jdbc:mysql://consultashevaro.ddns.net/hevaro","prueba","prueba1");
+        connect = DriverManager.getConnection("jdbc:mysql://consultashevaro.ddns.net/automotora","prueba","prueba1");
      }catch (Exception e)
      {
         JOptionPane.showMessageDialog(null,"Error"+e);
