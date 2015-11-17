@@ -5,7 +5,7 @@
  */
 package Principal;
 
-import Conectar.conectar1;
+import Conectar.conectar;
 import java.security.Principal;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -39,7 +39,7 @@ public class ListadoCliente extends javax.swing.JInternalFrame {
     model = new DefaultTableModel(null,titulos);
     
     
-      conectar1 cc = new conectar1();
+      conectar cc = new conectar();
       Connection cn = cc.conexion();
       
     try{
