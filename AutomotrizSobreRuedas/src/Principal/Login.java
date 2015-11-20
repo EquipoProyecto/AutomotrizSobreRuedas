@@ -220,11 +220,17 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_usuarioActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         String usu= usuario.getSelectedItem().toString();
+
+        if(usuario.getSelectedItem().equals("Cliente") && contraseña.getPassword().equals("") && codigo_cliente.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(this,"Rellene todos los campos");
+        }
+        else{
+        String usu= usuario.getSelectedItem().toString();
         String pas=new String (contraseña.getPassword());
         
         acceder(usu,pas);
-        
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
