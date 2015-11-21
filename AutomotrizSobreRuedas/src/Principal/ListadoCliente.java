@@ -35,7 +35,7 @@ public class ListadoCliente extends javax.swing.JInternalFrame {
     String titulos[] = {"Codigo Cliente","Nombre","Apellido"};
     String registro[] = new String [3];
     
-    String sql = "Select * from clientes";
+    String sql = "Select * from clientes ";
     model = new DefaultTableModel(null,titulos);
     
     
