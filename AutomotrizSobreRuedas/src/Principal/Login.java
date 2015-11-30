@@ -204,6 +204,7 @@ public class Login extends javax.swing.JFrame {
         if (usuario.getSelectedItem().equals("Cliente"))
      {
          codigo_cliente.setEnabled(true);
+         contraseña.setEnabled(false);
         codigo_cliente.addMouseListener(new MouseAdapter(){
             public void mouseClicked(MouseEvent e){
              codigo_cliente.setText("");

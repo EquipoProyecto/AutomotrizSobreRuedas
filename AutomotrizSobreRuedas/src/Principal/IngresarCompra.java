@@ -24,11 +24,12 @@ import javax.swing.JOptionPane;
  * @author Imacosx
  */
 public class IngresarCompra extends javax.swing.JInternalFrame {
-     
+     private String accion = "IngresarCompra";
     /**
      * Creates new form IngresarCompra
      */
     public IngresarCompra() {
+        
         initComponents();
         bloquear();
         RellenarAccesorio1();
@@ -57,7 +58,7 @@ public class IngresarCompra extends javax.swing.JInternalFrame {
         ResultSet rs = st.executeQuery(sql);
         while(rs.next())
         {
-           Accesorio1.addItem(rs.getString(2));
+           Accesorio1.addItem(rs.getString(1));
 
         }
     
@@ -81,7 +82,7 @@ public class IngresarCompra extends javax.swing.JInternalFrame {
         ResultSet rs = st.executeQuery("Select * from accesorios");
         while(rs.next())
         {
-          Accesorio2.addItem(rs.getString(2));
+          Accesorio2.addItem(rs.getString(1));
 
         }
     
@@ -117,6 +118,8 @@ public class IngresarCompra extends javax.swing.JInternalFrame {
         jButton5 = new javax.swing.JButton();
         cod_Auto = new javax.swing.JTextField();
         Fecha_Compra = new com.toedter.calendar.JDateChooser();
+        jLabel8 = new javax.swing.JLabel();
+        EstadoCompra = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -183,6 +186,11 @@ public class IngresarCompra extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel8.setText("Estado Compra:");
+
+        EstadoCompra.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Pendiente" }));
+        EstadoCompra.setToolTipText("");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -191,31 +199,15 @@ public class IngresarCompra extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cod_cliente))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cod_Auto, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton4)
-                            .addComponent(jButton5))
-                        .addContainerGap(377, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Accesorio1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(Accesorio1, 0, 236, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Fecha_Compra, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(Fecha_Compra, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -230,7 +222,27 @@ public class IngresarCompra extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(estado2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(116, 116, 116))))
+                        .addGap(116, 116, 116))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cod_cliente))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cod_Auto, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton4)
+                            .addComponent(jButton5))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(EstadoCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -261,7 +273,11 @@ public class IngresarCompra extends javax.swing.JInternalFrame {
                     .addComponent(Accesorio2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
                     .addComponent(estado2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(EstadoCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         jButton1.setText("Ingresar Compra");
@@ -296,8 +312,8 @@ public class IngresarCompra extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
@@ -337,23 +353,30 @@ public class IngresarCompra extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_Accesorio2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        PruebaTraspasoInformacion pt = new PruebaTraspasoInformacion();
-        Component add = Vendedor.EscritorioVendedor.add(pt);
-         pt.show();
-        String formato = Fecha_Compra.getDateFormatString();
-        Date date = Fecha_Compra.getDate();
-        SimpleDateFormat fecha = new SimpleDateFormat(formato);
-        PruebaTraspasoInformacion.fecha.setText(String.valueOf(fecha.format(date)));
-        PruebaTraspasoInformacion.codigo_cliente.setText(cod_cliente.getText());
-        PruebaTraspasoInformacion.codigo_auto.setText(cod_Auto.getText());
-       PruebaTraspasoInformacion.Accesorio1.setText(Accesorio1.getSelectedItem().toString());
-       PruebaTraspasoInformacion.Accesorio2.setText(Accesorio2.getSelectedItem().toString());
+      factura fa = new factura();
+  
+      Calendar cal;
+      int d,m,a;
+      cal=Fecha_Compra.getCalendar();
+      d=cal.get(Calendar.DAY_OF_MONTH);
+      m=cal.get(Calendar.MONTH);
+      a=cal.get(Calendar.YEAR)-1900;
+      fa.setFecha_compra(new Date(a,m,d));
+      fa.setCod_cliente(Integer.parseInt(cod_cliente.getText()));
+      fa.setCod_auto(Integer.parseInt(cod_Auto.getText()));
+      fa.setEstadoCompra(EstadoCompra.getSelectedItem().toString());
+      fa.setAcc1(Integer.parseInt(Accesorio1.getSelectedItem().toString()));
+      fa.setEstadoAccesorio(estado1.getSelectedItem().toString());
+      fa.ingresarCompra();
+      //JOptionPane.showMessageDialog(null,"cod_cliente"+cod_cliente.getText()+"\n codigo auto :"+cod_Auto.getText()+"Estado compra"+EstadoCompra.getSelectedItem().toString()+"\n Accesorio : "+Accesorio1.getSelectedItem()+"\n Estado Accesorio : "+estado1.getSelectedItem().toString());
+      
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JComboBox Accesorio1;
     public static javax.swing.JComboBox Accesorio2;
+    public static javax.swing.JComboBox EstadoCompra;
     private com.toedter.calendar.JDateChooser Fecha_Compra;
     public static javax.swing.JTextField cod_Auto;
     public static javax.swing.JTextField cod_cliente;
@@ -371,6 +394,7 @@ public class IngresarCompra extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     public static javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

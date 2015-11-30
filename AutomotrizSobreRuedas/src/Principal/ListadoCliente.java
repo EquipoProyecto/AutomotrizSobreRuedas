@@ -32,8 +32,8 @@ public class ListadoCliente extends javax.swing.JInternalFrame {
     public void ListadoClientes()
     {
         DefaultTableModel model;   
-    String titulos[] = {"Codigo Cliente","Nombre","Apellido"};
-    String registro[] = new String [3];
+    String titulos[] = {"Codigo Cliente","Nombre","Apellido Paterno","Apellido Materno"};
+    String registro[] = new String [4];
     
     String sql = "Select * from clientes ";
     model = new DefaultTableModel(null,titulos);
@@ -47,9 +47,10 @@ public class ListadoCliente extends javax.swing.JInternalFrame {
         ResultSet rs = st.executeQuery(sql);
         while(rs.next())
         {
-          registro[0] = rs.getString("CODIGO_CLIENTE");
-          registro[1] = rs.getString("NOMBRE");
-          registro[2] = rs.getString("APELLIDO");
+          registro[0] = rs.getString("codigo_cliente");
+          registro[1] = rs.getString("nombre");
+          registro[2] = rs.getString("apellido_p");
+          registro[3] = rs.getString("apellido_m");
           model.addRow(registro);
           ListadodeClientes.setModel(model);
         }
