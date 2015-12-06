@@ -95,9 +95,9 @@
                                       <Component id="estadoc" min="-2" pref="133" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="13" max="32767" attributes="0"/>
+                              <EmptySpace pref="23" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="nombre_auto" alignment="0" pref="9" max="32767" attributes="0"/>
+                                  <Component id="nombre_auto" alignment="0" pref="19" max="32767" attributes="0"/>
                                   <Component id="modelo_auto" alignment="0" max="32767" attributes="0"/>
                                   <Component id="color_auto" alignment="0" max="32767" attributes="0"/>
                               </Group>
@@ -153,7 +153,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel3" alignment="1" pref="16" max="32767" attributes="0"/>
+                          <Component id="jLabel3" alignment="1" pref="18" max="32767" attributes="0"/>
                           <Component id="nombre_auto" max="32767" attributes="0"/>
                           <Component id="marcaa" alignment="1" max="32767" attributes="0"/>
                       </Group>
@@ -174,7 +174,7 @@
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="2" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="4" max="32767" attributes="0"/>
                                       <Component id="colorr" min="-2" pref="14" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jLabel4" max="32767" attributes="0"/>
@@ -250,9 +250,6 @@
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="12" style="0"/>
-        </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Principal/icons/table_tab_search.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Buscar C&#xf3;digo"/>
       </Properties>
@@ -401,9 +398,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="modificar_c">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Principal/icons/update.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Modificar Compra"/>
       </Properties>
       <Events>
@@ -492,9 +486,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="modifica_e">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Principal/icons/update.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Modificar Estado"/>
       </Properties>
       <Events>

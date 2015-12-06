@@ -73,7 +73,6 @@ public class EstadoCompra extends javax.swing.JInternalFrame {
         jLabel1.setText("Ingrese el Código de la compra:");
 
         buscar.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/icons/table_tab_search.png"))); // NOI18N
         buscar.setText("Buscar Código");
         buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,7 +118,6 @@ public class EstadoCompra extends javax.swing.JInternalFrame {
         Estado_accesorio.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         Estado_accesorio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione...", "Pendiente", "Instalado" }));
 
-        modificar_c.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/icons/update.png"))); // NOI18N
         modificar_c.setText("Modificar Compra");
         modificar_c.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,7 +160,6 @@ public class EstadoCompra extends javax.swing.JInternalFrame {
 
         colorr.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
 
-        modifica_e.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/icons/update.png"))); // NOI18N
         modifica_e.setText("Modificar Estado");
         modifica_e.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -238,9 +235,9 @@ public class EstadoCompra extends javax.swing.JInternalFrame {
                                         .addComponent(jLabel13)
                                         .addGap(18, 18, 18)
                                         .addComponent(estadoc, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(nombre_auto, javax.swing.GroupLayout.DEFAULT_SIZE, 9, Short.MAX_VALUE)
+                                    .addComponent(nombre_auto, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE)
                                     .addComponent(modelo_auto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(color_auto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(20, 20, 20))
@@ -281,7 +278,7 @@ public class EstadoCompra extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 16, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 18, Short.MAX_VALUE)
                             .addComponent(nombre_auto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(marcaa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
@@ -298,7 +295,7 @@ public class EstadoCompra extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addGap(0, 2, Short.MAX_VALUE)
+                                        .addGap(0, 4, Short.MAX_VALUE)
                                         .addComponent(colorr, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)
