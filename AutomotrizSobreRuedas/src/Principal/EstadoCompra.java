@@ -103,6 +103,11 @@ public class EstadoCompra extends javax.swing.JInternalFrame {
 
         estado_compra.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         estado_compra.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione...", "Pendiente", "Preparado", "Entegado" }));
+        estado_compra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                estado_compraActionPerformed(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel10.setText("Datos de Accesorios:");
@@ -117,8 +122,14 @@ public class EstadoCompra extends javax.swing.JInternalFrame {
 
         Estado_accesorio.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         Estado_accesorio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione...", "Pendiente", "Instalado" }));
+        Estado_accesorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Estado_accesorioActionPerformed(evt);
+            }
+        });
 
         modificar_c.setText("Modificar Compra");
+        modificar_c.setEnabled(false);
         modificar_c.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modificar_cActionPerformed(evt);
@@ -161,6 +172,7 @@ public class EstadoCompra extends javax.swing.JInternalFrame {
         colorr.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
 
         modifica_e.setText("Modificar Estado");
+        modifica_e.setEnabled(false);
         modifica_e.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modifica_eActionPerformed(evt);
@@ -278,7 +290,7 @@ public class EstadoCompra extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 18, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(nombre_auto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(marcaa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
@@ -295,7 +307,7 @@ public class EstadoCompra extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addGap(0, 4, Short.MAX_VALUE)
+                                        .addGap(0, 0, Short.MAX_VALUE)
                                         .addComponent(colorr, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)
@@ -453,7 +465,23 @@ public class EstadoCompra extends javax.swing.JInternalFrame {
             PreparedStatement pst = cn.prepareStatement("UPDATE facturas SET estado='"+estado_compra.getSelectedItem().toString()+"'WHERE codigo_factura='"+cod.getText()+"'");
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null,"Datos del la compra Actualizados!!");
-            dispose();
+            estado_compra.setSelectedIndex(0);
+            
+            String sql2="SELECT autos.marca, autos.modelo, autos.color, facturas.estado FROM facturas INNER JOIN autos where facturas.codigo_factura = '"+cod.getText()+"' and facturas.auto = autos.codigo_auto";
+         
+            Statement st = cn.createStatement();
+            ResultSet rst = st.executeQuery(sql2);
+            
+            while(rst.next()){
+             marcaa.setText(rst.getString("autos.marca")); 
+             colorr.setText(rst.getString("autos.modelo"));
+             modeloo.setText(rst.getString("autos.color"));
+             estadoc.setText(rst.getString("facturas.estado"));
+        
+       
+         }
+           
+            
             //        PreparedStatement pst = cn.prepareStatement(UPDATE ingresos SET tipo='"+t_tipo.getText()+"',marca='"+t_marca.getText()+"',modelo='"+t_modelo.getText()+"',serie='"+t_serie.getText()+"',problema='"+t_problema.getText()+"',estado='"+t_estado.getText()+"'");
             } catch (SQLException ex) {
                 Logger.getLogger(EstadoCompra.class.getName()).log(Level.SEVERE, null, ex);
@@ -474,13 +502,68 @@ public class EstadoCompra extends javax.swing.JInternalFrame {
             PreparedStatement pst = cn.prepareStatement("UPDATE detalle_factura SET estado='"+Estado_accesorio.getSelectedItem().toString()+"'WHERE accesorio='"+coda.getText()+"'");
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null,"Datos del la compra Actualizados!!");
-            dispose();
+            
+             DefaultTableModel model;
+            String [] titulos = {"ID","Nombre Accesorio", "Estado de Accesorio"};
+            String [] registros = new String[4];
+            
+            String sql="SELECT accesorios.descripcion,accesorios.codigo, detalle_factura.estado FROM accesorios INNER JOIN detalle_factura where detalle_factura.compra = '"+cod.getText()+"' and detalle_factura.accesorio = accesorios.codigo";
+            model = new DefaultTableModel(null,titulos);
+            
+        
+            
+           try {  
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            
+            while(rs.next()){
+             registros[0]=rs.getString("accesorios.codigo");
+             registros[1]=rs.getString("accesorios.descripcion");
+             registros[2]=rs.getString("detalle_factura.estado");
+             model.addRow(registros);
+             accesorios.setModel(model);
+             
+             
+             
+             
+            
+            }
+        }catch (SQLException ex) {
+                Logger.getLogger(EstadoCompra.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            
             //        PreparedStatement pst = cn.prepareStatement(UPDATE ingresos SET tipo='"+t_tipo.getText()+"',marca='"+t_marca.getText()+"',modelo='"+t_modelo.getText()+"',serie='"+t_serie.getText()+"',problema='"+t_problema.getText()+"',estado='"+t_estado.getText()+"'");
             } catch (SQLException ex) {
                 Logger.getLogger(EstadoCompra.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_modifica_eActionPerformed
+
+    private void estado_compraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estado_compraActionPerformed
+        
+        if(estado_compra.getSelectedItem().equals("Seleccione..."))
+        {
+          modificar_c.setEnabled(false);
+        }
+        else 
+        {
+            modificar_c.setEnabled(true);
+        }
+        
+    }//GEN-LAST:event_estado_compraActionPerformed
+
+    private void Estado_accesorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Estado_accesorioActionPerformed
+        if(Estado_accesorio.getSelectedItem().equals("Seleccione..."))
+        {
+          modifica_e.setEnabled(false);
+        }
+        else 
+        {
+            modifica_e.setEnabled(true);
+        }
+        
+    }//GEN-LAST:event_Estado_accesorioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
