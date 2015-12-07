@@ -73,6 +73,7 @@ public class EstadoCompra extends javax.swing.JInternalFrame {
         jLabel1.setText("Ingrese el Código de la compra:");
 
         buscar.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        buscar.setIcon(new javax.swing.ImageIcon("C:\\Users\\HECTOR\\Desktop\\Nueva carpeta (3)\\table_tab_search.png")); // NOI18N
         buscar.setText("Buscar Código");
         buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,6 +129,7 @@ public class EstadoCompra extends javax.swing.JInternalFrame {
             }
         });
 
+        modificar_c.setIcon(new javax.swing.ImageIcon("C:\\Users\\HECTOR\\Desktop\\Nueva carpeta (3)\\update.png")); // NOI18N
         modificar_c.setText("Modificar Compra");
         modificar_c.setEnabled(false);
         modificar_c.addActionListener(new java.awt.event.ActionListener() {
@@ -171,6 +173,7 @@ public class EstadoCompra extends javax.swing.JInternalFrame {
 
         colorr.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
 
+        modifica_e.setIcon(new javax.swing.ImageIcon("C:\\Users\\HECTOR\\Desktop\\Nueva carpeta (3)\\update.png")); // NOI18N
         modifica_e.setText("Modificar Estado");
         modifica_e.setEnabled(false);
         modifica_e.addActionListener(new java.awt.event.ActionListener() {
@@ -247,9 +250,9 @@ public class EstadoCompra extends javax.swing.JInternalFrame {
                                         .addComponent(jLabel13)
                                         .addGap(18, 18, 18)
                                         .addComponent(estadoc, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(nombre_auto, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE)
+                                    .addComponent(nombre_auto, javax.swing.GroupLayout.DEFAULT_SIZE, 9, Short.MAX_VALUE)
                                     .addComponent(modelo_auto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(color_auto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(20, 20, 20))
@@ -524,7 +527,7 @@ public class EstadoCompra extends javax.swing.JInternalFrame {
              accesorios.setModel(model);
              
              
-             
+             Estado_accesorio.setSelectedIndex(0);
              
             
             }
