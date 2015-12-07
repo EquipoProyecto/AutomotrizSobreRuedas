@@ -35,7 +35,7 @@ public class ListadoAutos extends javax.swing.JInternalFrame {
     String titulos[] = {"Codigo Auto","Marca","Modelo"};
     String registro[] = new String [3];
     
-    String sql = "SELECT * FROM autos where CONCAT(CODIGO_AUTO,' ',MARCA,' ',MODELO) LIKE '%"+valor+"%'";
+    String sql = "SELECT concat_ws(' ,', marca, modelo) FROM autos where CONCAT(CODIGO_AUTO,' ',MARCA,' ',MODELO) LIKE '%"+valor+"%'";
     model = new DefaultTableModel(null,titulos);
     
     
@@ -141,7 +141,8 @@ public class ListadoAutos extends javax.swing.JInternalFrame {
           {
             JOptionPane.showMessageDialog(null,"Debe seleccionar un registro");
           }else
-              IngresarCompra.cod_Auto.setText(ListadodeAutos.getValueAt(ListadodeAutos.getSelectedRow(),0).toString());
+              IngresarCompra.codaut.setText(ListadodeAutos.getValueAt(ListadodeAutos.getSelectedRow(),0).toString());
+              IngresarCompra.auto_txt.setText(ListadodeAutos.getValueAt(ListadodeAutos.getSelectedRow(),1).toString());
                dispose();
         }catch(Exception e)
         {

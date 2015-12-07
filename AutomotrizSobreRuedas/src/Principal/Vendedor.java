@@ -5,20 +5,62 @@
  */
 package Principal;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 /**
  *
  * @author Imacosx
  */
-public class Vendedor extends javax.swing.JFrame {
-
+public class Vendedor extends javax.swing.JFrame implements Runnable {
+    String hora, minutos, segundos, ampm;
+    Calendar calendario;
+    Thread h1;
+     Calendar Cal= Calendar.getInstance();
     /**
      * Creates new form Cliente
      */
     public Vendedor() {
         initComponents();
-       
+      String fec= Cal.get(Cal.DATE)+"/"+(Cal.get(Cal.MONTH)+1)+"/"+Cal.get(Cal.YEAR);
+      FechaActual.setText(fec);
+     h1 = new Thread(this);
+        h1.start();
+           setLocationRelativeTo(null);//para centrar la ventana
+        setVisible(true);
+    }
+    public void run() {
+        Thread ct = Thread.currentThread();
+        while (ct == h1) {
+            calcula();
+            
+            HoraSistema.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
+            
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+            }
+        }
     }
 
+    public void calcula() {
+        Calendar calendario = new GregorianCalendar();
+        Date fechaHoraActual = new Date();
+
+
+        calendario.setTime(fechaHoraActual);
+        ampm = calendario.get(Calendar.AM_PM) == Calendar.AM ? "AM" : "PM";
+
+        if (ampm.equals("PM")) {
+            int h = calendario.get(Calendar.HOUR_OF_DAY) - 12;
+            hora = h > 9 ? "" + h : "0" + h;
+        } else {
+            hora = calendario.get(Calendar.HOUR_OF_DAY) > 9 ? "" + calendario.get(Calendar.HOUR_OF_DAY) : "0" + calendario.get(Calendar.HOUR_OF_DAY);
+        }
+        minutos = calendario.get(Calendar.MINUTE) > 9 ? "" + calendario.get(Calendar.MINUTE) : "0" + calendario.get(Calendar.MINUTE);
+        segundos = calendario.get(Calendar.SECOND) > 9 ? "" + calendario.get(Calendar.SECOND) : "0" + calendario.get(Calendar.SECOND);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,6 +71,8 @@ public class Vendedor extends javax.swing.JFrame {
     private void initComponents() {
 
         EscritorioVendedor = new javax.swing.JDesktopPane();
+        HoraSistema = new javax.swing.JLabel();
+        FechaActual = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -42,12 +86,24 @@ public class Vendedor extends javax.swing.JFrame {
         EscritorioVendedor.setLayout(EscritorioVendedorLayout);
         EscritorioVendedorLayout.setHorizontalGroup(
             EscritorioVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 669, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EscritorioVendedorLayout.createSequentialGroup()
+                .addContainerGap(523, Short.MAX_VALUE)
+                .addGroup(EscritorioVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(HoraSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(FechaActual, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23))
         );
         EscritorioVendedorLayout.setVerticalGroup(
             EscritorioVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 429, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EscritorioVendedorLayout.createSequentialGroup()
+                .addContainerGap(359, Short.MAX_VALUE)
+                .addComponent(HoraSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(FechaActual, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31))
         );
+        EscritorioVendedor.setLayer(HoraSistema, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        EscritorioVendedor.setLayer(FechaActual, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jMenu2.setText("Cliente");
 
@@ -148,6 +204,8 @@ public class Vendedor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JDesktopPane EscritorioVendedor;
+    private javax.swing.JLabel FechaActual;
+    public static javax.swing.JLabel HoraSistema;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
