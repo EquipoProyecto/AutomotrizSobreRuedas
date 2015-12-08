@@ -105,6 +105,7 @@ public class EstadoCliente extends javax.swing.JInternalFrame {
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jLabel4.setText("Marca:");
 
+        jButton1.setIcon(new javax.swing.ImageIcon("C:\\iconos\\table_tab_search.png")); // NOI18N
         jButton1.setText("Buscar Factura");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
