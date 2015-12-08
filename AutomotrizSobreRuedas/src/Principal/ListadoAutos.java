@@ -32,8 +32,8 @@ public class ListadoAutos extends javax.swing.JInternalFrame {
     public void ListadoAutos(String valor)
     {
         DefaultTableModel model;   
-    String titulos[] = {"Codigo Auto","Marca","Modelo"};
-    String registro[] = new String [3];
+    String titulos[] = {"Codigo Auto","Marca","Modelo","Color","Precio"};
+    String registro[] = new String [5];
     
     String sql = "SELECT * FROM autos where CONCAT(CODIGO_AUTO,' ',MARCA,' ',MODELO) LIKE '%"+valor+"%'";
     model = new DefaultTableModel(null,titulos);
@@ -50,6 +50,8 @@ public class ListadoAutos extends javax.swing.JInternalFrame {
           registro[0] = rs.getString("CODIGO_AUTO");
           registro[1] = rs.getString("MARCA");
           registro[2] = rs.getString("MODELO");
+          registro[3] = rs.getString("COLOR");
+          registro[4] = rs.getString("PRECIO");
           model.addRow(registro);
           ListadodeAutos.setModel(model);
         }
@@ -141,8 +143,12 @@ public class ListadoAutos extends javax.swing.JInternalFrame {
           {
             JOptionPane.showMessageDialog(null,"Debe seleccionar un registro");
           }else
-              IngresarCompra.cod_Auto.setText(ListadodeAutos.getValueAt(ListadodeAutos.getSelectedRow(),0).toString());
-               dispose();
+              IngresarCompra.codaut.setText(ListadodeAutos.getValueAt(ListadodeAutos.getSelectedRow(),0).toString());
+              IngresarCompra.Marca_auto.setText(ListadodeAutos.getValueAt(ListadodeAutos.getSelectedRow(),1).toString());
+              IngresarCompra.Modelo_auto.setText(ListadodeAutos.getValueAt(ListadodeAutos.getSelectedRow(),2).toString());
+              IngresarCompra.Color_auto.setText(ListadodeAutos.getValueAt(ListadodeAutos.getSelectedRow(),3).toString());
+              IngresarCompra.Precio_auto.setText(ListadodeAutos.getValueAt(ListadodeAutos.getSelectedRow(),4).toString());
+              dispose();
         }catch(Exception e)
         {
             

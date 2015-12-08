@@ -136,8 +136,12 @@ public class ListadoCliente extends javax.swing.JInternalFrame {
           {
             JOptionPane.showMessageDialog(null,"Debe seleccionar un registro");
           }else
-              IngresarCompra.cod_cliente.setText(ListadodeClientes.getValueAt(ListadodeClientes.getSelectedRow(),0).toString());
-               dispose();
+              IngresarCompra.codclie.setText(ListadodeClientes.getValueAt(ListadodeClientes.getSelectedRow(),0).toString());
+              IngresarCompra.Nombre_clie.setText(ListadodeClientes.getValueAt(ListadodeClientes.getSelectedRow(),1).toString());
+              IngresarCompra.ApellidP_clie.setText(ListadodeClientes.getValueAt(ListadodeClientes.getSelectedRow(),2).toString());
+              IngresarCompra.ApellidoM_clie.setText(ListadodeClientes.getValueAt(ListadodeClientes.getSelectedRow(),3).toString());
+               
+              dispose();
         }catch(Exception e)
         {
             
