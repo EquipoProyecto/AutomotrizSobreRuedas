@@ -73,7 +73,7 @@ public class EstadoCompra extends javax.swing.JInternalFrame {
         jLabel1.setText("Ingrese el Código de la compra:");
 
         buscar.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/icons/table_tab_search.png"))); // NOI18N
+        buscar.setIcon(new javax.swing.ImageIcon("C:\\Users\\HECTOR\\Desktop\\Nueva carpeta (3)\\table_tab_search.png")); // NOI18N
         buscar.setText("Buscar Código");
         buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,7 +129,7 @@ public class EstadoCompra extends javax.swing.JInternalFrame {
             }
         });
 
-        modificar_c.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/icons/update.png"))); // NOI18N
+        modificar_c.setIcon(new javax.swing.ImageIcon("C:\\Users\\HECTOR\\Desktop\\Nueva carpeta (3)\\update.png")); // NOI18N
         modificar_c.setText("Modificar Compra");
         modificar_c.setEnabled(false);
         modificar_c.addActionListener(new java.awt.event.ActionListener() {
@@ -173,7 +173,7 @@ public class EstadoCompra extends javax.swing.JInternalFrame {
 
         colorr.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
 
-        modifica_e.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/icons/update.png"))); // NOI18N
+        modifica_e.setIcon(new javax.swing.ImageIcon("C:\\Users\\HECTOR\\Desktop\\Nueva carpeta (3)\\update.png")); // NOI18N
         modifica_e.setText("Modificar Estado");
         modifica_e.setEnabled(false);
         modifica_e.addActionListener(new java.awt.event.ActionListener() {

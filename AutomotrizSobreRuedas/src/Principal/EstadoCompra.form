@@ -252,7 +252,7 @@
           <Font name="Times New Roman" size="12" style="0"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Principal/icons/table_tab_search.png"/>
+          <Image iconType="2" name="C:\Users\HECTOR\Desktop\Nueva carpeta (3)\table_tab_search.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Buscar C&#xf3;digo"/>
       </Properties>
@@ -408,7 +408,7 @@
     <Component class="javax.swing.JButton" name="modificar_c">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Principal/icons/update.png"/>
+          <Image iconType="2" name="C:\Users\HECTOR\Desktop\Nueva carpeta (3)\update.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Modificar Compra"/>
         <Property name="enabled" type="boolean" value="false"/>
@@ -500,7 +500,7 @@
     <Component class="javax.swing.JButton" name="modifica_e">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Principal/icons/update.png"/>
+          <Image iconType="2" name="C:\Users\HECTOR\Desktop\Nueva carpeta (3)\update.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Modificar Estado"/>
         <Property name="enabled" type="boolean" value="false"/>
